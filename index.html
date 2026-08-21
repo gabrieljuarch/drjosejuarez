@@ -44,7 +44,9 @@
 <!-- ============ TIPOGRAFÍA (Google Fonts - única dependencia externa permitida) ============ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Lato:wght@400;700&display=swap"></noscript>
 
 <!-- ============ DATOS ESTRUCTURADOS (Schema.org - Physician) ============ -->
 <script type="application/ld+json">
@@ -470,19 +472,6 @@ section{
   object-fit: cover;
   object-position: top center;
 }
-.hero-photo-frame svg{ width:46%; height:46%; color: var(--color-primary); opacity:.55; }
-.hero-photo-frame span{
-  position:absolute;
-  bottom:14px;
-  font-family: var(--font-heading);
-  font-size:0.68rem;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color: var(--color-primary);
-  opacity:.6;
-  background: rgba(255,255,255,.6);
-  padding: 3px 10px;
-}
 
 @keyframes floatY{
   0%,100%{ transform: translateY(0); }
@@ -599,19 +588,6 @@ section{
   object-fit: cover;
   object-position: top center;
 }
-.about-photo-frame svg{ width:34%; height:34%; color: var(--color-primary); opacity:.55; }
-.about-photo-frame span{
-  position:absolute;
-  bottom:14px;
-  font-family: var(--font-heading);
-  font-size:0.68rem;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  color: var(--color-primary);
-  opacity:.6;
-  background: rgba(255,255,255,.6);
-  padding: 3px 10px;
-}
 .about-body p{ margin-bottom: 18px; max-width: 62ch; font-size: 1.08rem; text-align: justify; }
 .doctoralia-link{ margin-top: 8px; }
 .doctoralia-link a{
@@ -688,7 +664,6 @@ section{
   z-index:2;
   filter: drop-shadow(0 6px 10px rgba(23,74,103,0.35));
 }
-.service-visual svg{ width:32%; height:32%; color: var(--color-primary); opacity:.5; }
 .service-visual img{ width:100%; height:100%; object-fit:cover; object-position: top center; }
 .service-visual--portrait{
   aspect-ratio: 1023 / 1537;
