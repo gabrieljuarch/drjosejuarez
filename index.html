@@ -612,10 +612,12 @@ section{
 .credentials li:first-child{ padding-top:0; }
 
 @media (max-width: 900px){
-  .about{ padding-top: 8px; }
+  .about{ padding-top: 48px; }
   .about .container{ grid-template-columns: 1fr; gap: 20px; }
   .about-side{ position:static; }
   .credentials{ grid-template-columns: 1fr; }
+  .credentials-banner-item:first-child{ left: 0; }
+  .credentials-banner-item:last-child{ left: 0; }
 }
 
 /* ============================================================
@@ -718,6 +720,20 @@ section{
   .procedures-grid{ grid-template-columns: repeat(2,1fr); }
   .procedure-item:nth-child(3n){ border-right: 1px solid rgba(23,74,103,0.15); }
   .procedure-item:nth-child(2n){ border-right:none; }
+}
+
+/* Consulta Pediátrica en móvil: título, texto, imagen y lista a todo el ancho */
+@media (max-width: 900px){
+  #consulta-pediatrica > .container:first-child{
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+  #consulta-pediatrica .service-copy{ display: contents; }
+  #consulta-pediatrica .service-copy h2{ order: 1; }
+  #consulta-pediatrica .service-copy > p{ order: 2; }
+  #consulta-pediatrica .service-visual-wrap{ order: 3; }
+  #consulta-pediatrica .check-list{ order: 4; margin-top: 4px; }
 }
 @media (max-width: 560px){
   .procedures-grid{ grid-template-columns: 1fr; }
