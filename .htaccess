@@ -1,0 +1,4 @@
+# Redirige la versión "www" a la versión sin "www" (canónica)
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.drjosejuarez\.com$ [NC]
+RewriteRule ^(.*)$ https://drjosejuarez.com/$1 [L,R=301]
