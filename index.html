@@ -10,6 +10,31 @@
 
   gtag('config', 'G-7BL7V2406V');
 </script>
+
+<!-- Google Ads: seguimiento de conversión "Clic saliente" -->
+<script>
+function gtag_report_conversion(url) {
+  var called = false;
+  var callback = function () {
+    if (called) return;
+    called = true;
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18408362040/iG9BCNPDh-ccELig5clE',
+      'value': 1.0,
+      'currency': 'MXN',
+      'event_callback': callback
+  });
+  /* Respaldo: si el evento de conversión no responde a tiempo
+     (bloqueador de anuncios, conexión lenta), la acción principal
+     (llamar) se ejecuta de todas formas tras 1 segundo. */
+  setTimeout(callback, 1000);
+  return false;
+}
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -953,7 +978,7 @@ section{
     </nav>
 
     <div class="header-right">
-      <a class="header-cta-btn" href="tel:+524777164915">
+      <a class="header-cta-btn" href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span>Agendar cita</span>
       </a>
@@ -973,7 +998,7 @@ section{
         <h1>Dr. José de Jesús<br>Juárez Pagaza<span class="h1-sub">Cirujano Pediatra en León, Guanajuato</span></h1>
         <p class="lead">Atención pediátrica y cirugía infantil en el Hospital Aranda de la Parra. Más de 30 años cuidando la salud de los niños y niñas con calidez, experiencia y confianza.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="tel:+524777164915">
+          <a class="btn btn-primary" href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             Llamar para agendar cita
           </a>
@@ -1039,7 +1064,7 @@ section{
             </ul>
           </div>
         </div>
-        <p class="doctoralia-link"><a class="btn-doctoralia" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Ver perfil en Doctoralia</a></p>
+        <p class="doctoralia-link"><a class="btn-doctoralia" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener" onclick="gtag(&#39;event&#39;, &#39;conversion&#39;, {&#39;send_to&#39;: &#39;AW-18408362040/iG9BCNPDh-ccELig5clE&#39;, &#39;value&#39;: 1.0, &#39;currency&#39;: &#39;MXN&#39;});">Ver perfil en Doctoralia</a></p>
       </div>
     </div>
   </section>
@@ -1073,7 +1098,7 @@ section{
   <section class="cta-banner fade-in">
     <div class="container">
       <h2>¿Tu hijo necesita atención pediátrica? Agenda su cita y, con gusto los atenderé.</h2>
-      <a class="btn btn-primary" href="tel:+524777164915">
+      <a class="btn btn-primary" href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         (477) 716-4915
       </a>
@@ -1164,7 +1189,7 @@ section{
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <div>
             <h3>Citas por teléfono</h3>
-            <p>Las citas se agendan únicamente llamando al <a href="tel:+524777164915" style="color:var(--color-primary); font-weight:700;">(477) 716-4915</a>.</p>
+            <p>Las citas se agendan únicamente llamando al <a href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);" style="color:var(--color-primary); font-weight:700;">(477) 716-4915</a>.</p>
           </div>
         </div>
 
@@ -1205,8 +1230,8 @@ section{
         <p>Hidalgo 329, Grupo Pediátrico 2° Piso</p>
         <p>Col. Centro, C.P. 37000</p>
         <p>León, Guanajuato</p>
-        <p><a href="tel:+524777164915">(477) 716-4915</a></p>
-        <p><a class="btn-doctoralia btn-doctoralia--footer" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Ver perfil en Doctoralia</a></p>
+        <p><a href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);">(477) 716-4915</a></p>
+        <p><a class="btn-doctoralia btn-doctoralia--footer" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener" onclick="gtag(&#39;event&#39;, &#39;conversion&#39;, {&#39;send_to&#39;: &#39;AW-18408362040/iG9BCNPDh-ccELig5clE&#39;, &#39;value&#39;: 1.0, &#39;currency&#39;: &#39;MXN&#39;});">Ver perfil en Doctoralia</a></p>
       </div>
       <div>
         <h3>Horario</h3>
@@ -1225,7 +1250,7 @@ section{
 </footer>
 
 <!-- ============ BOTÓN FLOTANTE DE LLAMADA ============ -->
-<a class="floating-call" href="tel:+524777164915" aria-label="Llamar para agendar cita">
+<a class="floating-call" href="tel:+524777164915" onclick="return gtag_report_conversion(&#39;tel:+524777164915&#39;);" aria-label="Llamar para agendar cita">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
 </a>
 
