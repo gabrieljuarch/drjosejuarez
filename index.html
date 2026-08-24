@@ -590,13 +590,34 @@ section{
 }
 .about-body p{ margin-bottom: 18px; max-width: 62ch; font-size: 1.08rem; text-align: justify; }
 .doctoralia-link{ margin-top: 8px; }
-.doctoralia-link a{
+.btn-doctoralia{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top: 6px;
   font-family: var(--font-heading);
   font-weight:700;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: 2px solid var(--color-secondary);
   color: var(--color-secondary);
+  background: transparent;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
 }
-.doctoralia-link a:hover{ text-decoration: underline; }
+.btn-doctoralia:hover{
+  background: var(--color-secondary);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+}
+.btn-doctoralia--footer{
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+.btn-doctoralia--footer:hover{
+  background: var(--color-accent);
+  color: var(--color-text);
+}
 
 .credentials{
   margin-top: 42px;
@@ -1018,7 +1039,7 @@ section{
             </ul>
           </div>
         </div>
-        <p class="doctoralia-link"><a href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Ver reseñas en Doctoralia →</a></p>
+        <p class="doctoralia-link"><a class="btn-doctoralia" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Ver perfil en Doctoralia</a></p>
       </div>
     </div>
   </section>
@@ -1185,7 +1206,7 @@ section{
         <p>Col. Centro, C.P. 37000</p>
         <p>León, Guanajuato</p>
         <p><a href="tel:+524777164915">(477) 716-4915</a></p>
-        <p><a href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Conoce la opinión de otros pacientes en Doctoralia →</a></p>
+        <p><a class="btn-doctoralia btn-doctoralia--footer" href="https://www.doctoralia.com.mx/perfil/jose-de-jesus-juarez-pagaza-2" target="_blank" rel="noopener">Ver perfil en Doctoralia</a></p>
       </div>
       <div>
         <h3>Horario</h3>
@@ -1251,10 +1272,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
    ============================================================ */
 (function(){
   var items = document.querySelectorAll('.fade-in');
+  if(!items.length) return;
+
   if(!('IntersectionObserver' in window)){
     items.forEach(function(el){ el.classList.add('is-visible'); });
     return;
   }
+
   var observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
@@ -1262,8 +1286,31 @@ document.getElementById('year').textContent = new Date().getFullYear();
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.01, rootMargin: '0px 0px -5% 0px' });
   items.forEach(function(el){ observer.observe(el); });
+
+  /* Red de seguridad: si por scroll rápido o alguna particularidad
+     del navegador el observer no dispara a tiempo, esto revisa
+     manualmente y revela cualquier elemento que ya esté a la vista. */
+  function sweep(){
+    items.forEach(function(el){
+      if(el.classList.contains('is-visible')) return;
+      var r = el.getBoundingClientRect();
+      if(r.top < window.innerHeight && r.bottom > 0){
+        el.classList.add('is-visible');
+        observer.unobserve(el);
+      }
+    });
+  }
+  var sweepTimer;
+  function scheduleSweep(){
+    clearTimeout(sweepTimer);
+    sweepTimer = setTimeout(sweep, 150);
+  }
+  window.addEventListener('scroll', scheduleSweep, { passive: true });
+  window.addEventListener('resize', scheduleSweep);
+  window.addEventListener('load', sweep);
+  setTimeout(sweep, 1200);
 })();
 </script>
 
